@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -6,10 +8,11 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Colors.white,
 
       child: ListView(
         children: [
-          Container(
+          SizedBox(
             height: 50,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
