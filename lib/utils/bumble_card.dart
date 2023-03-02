@@ -27,32 +27,75 @@ class BumbleCard extends StatelessWidget {
       verticalSwipe: false,
       child: Padding(
         padding: const EdgeInsets.only(top: 10, left: 8, right: 8),
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height / 1.25,
-          width: MediaQuery.of(context).size.width,
-          child: Stack(
+        child: SingleChildScrollView(
+          child: Column(
             children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 1.25,
+                width: MediaQuery.of(context).size.width,
+                child: Stack(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(users.imageUrls[0]),
+                              fit: BoxFit.cover),
+                          borderRadius: BorderRadius.all(Radius.circular(8.0))),
+                    ),
+                    Positioned(
+                        bottom: 30,
+                        left: 20,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '${users.name},${users.age}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline2!
+                                  .copyWith(color: Colors.white),
+                            ),
+                          ],
+                        ))
+                  ],
+                ),
+              ),
               Container(
+                height: 50,
+                width: MediaQuery.of(context).size.width,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text("My Bio",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Color.fromARGB(255, 250, 187, 0),
+                        fontWeight: FontWeight.bold,
+                      )),
+                ),
+              ),
+              Container(
+                height: 100,
+                width: MediaQuery.of(context).size.width,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(users.bio,
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 142, 139, 139),
+                      )),
+                ),
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height / 1.25,
+                width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: NetworkImage(users.imageUrls),
+                        image: NetworkImage(users.imageUrls[1]),
                         fit: BoxFit.cover),
                     borderRadius: BorderRadius.all(Radius.circular(8.0))),
               ),
-              Positioned(
-                  bottom: 30,
-                  left: 20,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '${users.name},${users.age}',
-                        style: Theme.of(context).textTheme.headline2!.copyWith(color: Colors.white),
-                      ),
-                      
-                    ],
-                  ))
-            ],
+            ]
           ),
         ),
       ),

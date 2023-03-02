@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:bumble_clone/model/model.dart';
 import 'package:bumble_clone/utils/bumble_card.dart';
 import 'package:bumble_clone/widgets/drawer.dart';
@@ -34,63 +36,111 @@ class _HomePageState extends State<HomePage> {
         color: Colors.white,
         child: Stack(
           children: [
-            BumbleCard(
-              users: User.users[0],
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 1.25,
+              width: MediaQuery.of(context).size.width,
+              child: BumbleCard(
+                users: User.users[0],
+              ),
             ),
-            BumbleCard(
-              users: User.users[1],
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 1.25,
+              width: MediaQuery.of(context).size.width,
+              child: BumbleCard(
+                users: User.users[1],
+              ),
             ),
-            BumbleCard(
-              users: User.users[2],
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 1.25,
+              width: MediaQuery.of(context).size.width,
+              child: BumbleCard(
+                users: User.users[2],
+              ),
             ),
-            BumbleCard(
-              users: User.users[3],
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 1.25,
+              width: MediaQuery.of(context).size.width,
+              child: BumbleCard(
+                users: User.users[3],
+              ),
             ),
-            BumbleCard(
-              users: User.users[4],
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 1.25,
+              width: MediaQuery.of(context).size.width,
+              child: BumbleCard(
+                users: User.users[4],
+              ),
             ),
-            BumbleCard(
-              users: User.users[5],
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 1.25,
+              width: MediaQuery.of(context).size.width,
+              child: BumbleCard(
+                users: User.users[5],
+              ),
             ),
-            BumbleCard(
-              users: User.users[6],
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 1.25,
+              width: MediaQuery.of(context).size.width,
+              child: BumbleCard(
+                users: User.users[6],
+              ),
             ),
-            BumbleCard(
-              users: User.users[7],
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 1.25,
+              width: MediaQuery.of(context).size.width,
+              child: BumbleCard(
+                users: User.users[7],
+              ),
             ),
-            BumbleCard(
-              users: User.users[8],
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 1.25,
+              width: MediaQuery.of(context).size.width,
+              child: BumbleCard(
+                users: User.users[8],
+              ),
             ),
-            BumbleCard(
-              users: User.users[9],
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 1.25,
+              width: MediaQuery.of(context).size.width,
+              child: BumbleCard(
+                users: User.users[9],
+              ),
             ),
-            BumbleCard(
-              users: User.users[10],
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 1.25,
+              width: MediaQuery.of(context).size.width,
+              child: BumbleCard(
+                users: User.users[10],
+              ),
             ),
-            BumbleCard(
-              users: User.users[11],
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 1.25,
+              width: MediaQuery.of(context).size.width,
+              child: BumbleCard(
+                users: User.users[11],
+              ),
             ),
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(items: [
+      bottomNavigationBar: BottomNavigationBar(items: const [
         BottomNavigationBarItem(
           icon: Icon(
-            Icons.home,
+            Icons.person,
             color: Colors.black,
           ),
           label: "Home",
         ),
         BottomNavigationBarItem(
-          icon: Icon(CupertinoIcons.square_grid_2x2_fill, color: Colors.black),
+          icon: Icon(Icons.menu, color: Colors.black),
           label: "Home",
         ),
         BottomNavigationBarItem(
-          icon: Icon(CupertinoIcons.tag_fill, color: Colors.black),
+          icon: Icon(CupertinoIcons.heart_fill, color: Colors.black),
           label: "Home",
         ),
         BottomNavigationBarItem(
-          icon: Icon(CupertinoIcons.person_fill, color: Colors.black),
+          icon: Icon(CupertinoIcons.captions_bubble_fill, color: Colors.black),
           label: "Home",
         ),
       ]),
