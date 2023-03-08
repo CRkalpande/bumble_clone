@@ -3,6 +3,10 @@
 import 'package:bumble_clone/model/model.dart';
 import 'package:bumble_clone/utils/bumble_card.dart';
 import 'package:bumble_clone/widgets/drawer.dart';
+import 'package:bumble_clone/widgets/pages/chat_page.dart';
+import 'package:bumble_clone/widgets/pages/feed_page.dart';
+import 'package:bumble_clone/widgets/pages/like_page.dart';
+import 'package:bumble_clone/widgets/pages/profile_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +18,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int currentIndex = 0;
+  final screens = [
+    ProfilePage(),
+    FeedPage(),
+    LikePage(),
+    ChatPage()
+  
+    
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,118 +45,42 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {}, icon: Icon(CupertinoIcons.slider_horizontal_3))
         ],
       ),
-      body: Container(
-        color: Colors.white,
-        child: Stack(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 1.25,
-              width: MediaQuery.of(context).size.width,
-              child: BumbleCard(
-                users: User.users[0],
+      body: screens[currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: currentIndex,
+          onTap: (index) => setState(
+                () => currentIndex = index,
               ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 1.25,
-              width: MediaQuery.of(context).size.width,
-              child: BumbleCard(
-                users: User.users[1],
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Color.fromARGB(31, 8, 8, 8),
+          iconSize: 30,
+          showSelectedLabels: false,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person,
               ),
+              label: "Profile",
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 1.25,
-              width: MediaQuery.of(context).size.width,
-              child: BumbleCard(
-                users: User.users[2],
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.menu,
               ),
+              label: "Home",
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 1.25,
-              width: MediaQuery.of(context).size.width,
-              child: BumbleCard(
-                users: User.users[3],
+            BottomNavigationBarItem(
+              icon: Icon(
+                CupertinoIcons.heart_fill,
               ),
+              label: "Likes",
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 1.25,
-              width: MediaQuery.of(context).size.width,
-              child: BumbleCard(
-                users: User.users[4],
+            BottomNavigationBarItem(
+              icon: Icon(
+                CupertinoIcons.captions_bubble_fill,
               ),
+              label: "Chats",
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 1.25,
-              width: MediaQuery.of(context).size.width,
-              child: BumbleCard(
-                users: User.users[5],
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 1.25,
-              width: MediaQuery.of(context).size.width,
-              child: BumbleCard(
-                users: User.users[6],
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 1.25,
-              width: MediaQuery.of(context).size.width,
-              child: BumbleCard(
-                users: User.users[7],
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 1.25,
-              width: MediaQuery.of(context).size.width,
-              child: BumbleCard(
-                users: User.users[8],
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 1.25,
-              width: MediaQuery.of(context).size.width,
-              child: BumbleCard(
-                users: User.users[9],
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 1.25,
-              width: MediaQuery.of(context).size.width,
-              child: BumbleCard(
-                users: User.users[10],
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 1.25,
-              width: MediaQuery.of(context).size.width,
-              child: BumbleCard(
-                users: User.users[11],
-              ),
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(items: const [
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.person,
-            color: Colors.black,
-          ),
-          label: "Home",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.menu, color: Colors.black),
-          label: "Home",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(CupertinoIcons.heart_fill, color: Colors.black),
-          label: "Home",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(CupertinoIcons.captions_bubble_fill, color: Colors.black),
-          label: "Home",
-        ),
-      ]),
+          ]),
       drawer: MyDrawer(),
     );
   }
